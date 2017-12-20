@@ -1,7 +1,7 @@
 var rpio = require('rpio');
 
 //Constants
-const CONTROL_DELAY = 2000;
+const CONTROL_DELAY = 250;
 
 function warmerInit(params, mock = false) {
     
@@ -22,7 +22,7 @@ function warmerToggle(params, done) {
     //todo: replace params(.pin) with stored pin number
     
     //Toggle the control pin high for CONTROL_DELAY ms
-    rpio.write(params.contolPin, rpio.HIGH);
+    rpio.write(params.controlPin, rpio.HIGH);
     rpio.msleep(CONTROL_DELAY);
     rpio.write(params.controlPin, rpio.LOW);
     
