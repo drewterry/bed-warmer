@@ -1,5 +1,8 @@
 var rpio = require('rpio');
 
+//Constants
+const CONTROL_DELAY = 2000;
+
 function warmerInit(params, mock = false) {
     
     //todo: store control pin number for future use
@@ -26,8 +29,16 @@ function warmerToggle(params, done) {
     done();
 }
 
+function warmerClose(params){
+    
+    //Clear any pin configurations
+    rpio.close(params.controlPin, rpio.PIN_RESET);
+    
+}
+
 module.exports = {
     init: warmerInit,
-    toggle: warmerToggle 
+    toggle: warmerToggle,
+    close: warmerClose
 }
 
