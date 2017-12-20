@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "express": "^4.16.2",
     "rpio": "^0.9.20"
   }
 }
